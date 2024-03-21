@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    tapsnapuser home 
+    tapsnapuser home
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>Hello, {{ user.username }}!</p>
+    <p>Email: {{ user.email }}</p>
+
+    <form method="post" action="accounts/login/?next=/">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
+
 </body>
 </html>

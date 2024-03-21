@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+
 
 @login_required
 def home(request):
-    return render(request,"home.html",{})
-
-
+    
+    return render(request,"home.html",{'user': request.user})
 
 def authView(request):
     if request.method == "POST":
@@ -17,3 +20,8 @@ def authView(request):
     else:
         form=UserCreationForm()
     return render(request,"registration/signup.html",{"form":form})
+
+def logout_view(request):
+    if request.method == 'POST' or request.method == 'GET':
+        logout(request)
+        return redirect('login')  # Redirect to the login page after logout
