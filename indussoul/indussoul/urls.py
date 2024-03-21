@@ -19,7 +19,6 @@ from django.urls import path,include
 from tapsnapuser import urls
 
 urlpatterns = [
+    path('', include(('tapsnapuser.urls', 'tapsnapuser'), namespace='tapsnapuser')),
     path('admin/', admin.site.urls),
-    path(""),include(("tapsnapuser.urls","tapsnapuser"),"tapsnapuser")
 ]
-
