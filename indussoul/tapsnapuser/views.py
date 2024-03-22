@@ -10,7 +10,7 @@ from django.shortcuts import redirect
 @login_required
 def home(request):
     
-    return render(request,"home.html",{'user': request.user})
+    return render(request,"index.html",{'user': request.user})
 
 def authView(request):
     if request.method == "POST":

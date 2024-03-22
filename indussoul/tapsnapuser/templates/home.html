@@ -15,11 +15,67 @@
     <p>Hello, {{ user.username }}!</p>
     <p>Email: {{ user.email }}</p>
 
+    <p>
+    user_login:
+
+    user_id (Primary Key)
+    username
+    email
+    phonenumber
+    created
+    modified
+    deletflag
+    remarkdict
+    Additional Suggestions:
+    
+    password: VARCHAR or encrypted hash (for user authentication)
+    last_login: TIMESTAMP (to track the last login time)
+    account_status: ENUM ('active', 'inactive', 'suspended', etc.) (to manage account status)
+    account_type: ENUM ('basic', 'premium', 'admin', etc.) (to differentiate account types)
+    security_question: VARCHAR (for password recovery)
+    security_answer: VARCHAR (for password recovery)
+    login_attempts: INT (to track unsuccessful login attempts)
+    last_login_ip: VARCHAR (to track IP address of last login)
+    authentication_token: VARCHAR (if using token-based authentication)
+
+</p><p>
+
+    user_info:
+    
+    user_id (Foreign Key)
+    Name
+    Urlendpoint
+    number
+    date_of_birth
+    template_id
+    address
+    profile_photo
+    email_id
+    social_handles
+    qr_dict
+    other_fields
+    update_count
+    created_at
+    deleted
+    custom_flag
+    Additional Suggestions:
+    
+    gender: ENUM ('male', 'female', 'other') (for demographic information)
+    country: VARCHAR (for user's country of residence)
+    language_preference: VARCHAR (preferred language)
+    occupation: VARCHAR (user's profession)
+    interests_hobbies: TEXT (to store user's interests or hobbies)
+    relationship_status: ENUM ('single', 'married', 'divorced', etc.) (if applicable)
+    website_url: VARCHAR (if users have personal websites)
+    privacy_settings: JSON (to store user's privacy preferences)
+    additional_contact_info: TEXT (for any additional contact information)
+    billing_info: JSON (if users need to store billing information)
+    subscription_details: JSON (if users have subscription plans)
+    user_preferences: JSON (for storing user preferences like theme, notification settings, etc.)
+</p>
     <form method="post" action="accounts/login/?next=/">
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
-
-
 </body>
 </html>

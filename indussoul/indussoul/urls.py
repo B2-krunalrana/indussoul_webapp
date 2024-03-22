@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from tapsnapuser import urls
+# from tapsnapuser import urls
 
 urlpatterns = [
     path('', include(('tapsnapuser.urls', 'tapsnapuser'), namespace='tapsnapuser')),
+    path('vcard/', include(('vcard.urls', 'vcard'), namespace='vcard')),
+    # path('vcard/', include('vcard.urls')),
     path('admin/', admin.site.urls),
 ]
+
+
