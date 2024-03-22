@@ -25,3 +25,15 @@ def logout_view(request):
     if request.method == 'POST' or request.method == 'GET':
         logout(request)
         return redirect('login')  # Redirect to the login page after logout
+    
+def user_account(request):
+    return render(request,"account.html",{'user': request.user})
+
+def user_vcard_template(request):
+    return render(request,"userVcardTemplate.html",{'user': request.user})
+
+def user_setting(request):
+    return render(request,"setting.html",{'user': request.user})
+
+
+
